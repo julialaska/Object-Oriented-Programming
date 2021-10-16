@@ -1,31 +1,33 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
-public class zad1pod2 {
+public class t {
     public static void main(String[] args) {
-
-        ArrayList<Integer> lista = new ArrayList<>();
-
-
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj n");
         int n = scan.nextInt();
 
+        int[] tab = new int[n];
 
         for (int i = 0; i < n; i++) {
             System.out.println("Podaj liczbę");
-            int liczba = scan.nextInt();
-            lista.add(liczba);
-//            System.out.println(lista.get(i));
+            tab[i] = scan.nextInt();
         }
 
+        int x = tab[0];
 
-        int i = lista.set(0, n);
-        int a = lista.set(n, 0);
+        int[] tab2 = new int[n];
 
-
-        for (int j = 0; j < n; j++) {
-            System.out.print(lista.get(j));
+        for(int j=1;j<n;j++){
+            tab2[j-1] = tab[j];
         }
+
+        tab2[n-1] = x;
+
+        for(int k=0;k<n;k++) {
+            System.out.print(tab2[k]);
+        }
+
     }
+
+
 }
