@@ -33,7 +33,7 @@ public class zad2 {
         wypisz(tab);
 
 
-  }
+    }
 
     public static void generuj(int[] tab, int n, int minWartosc, int maxWartosc) {
         Random r = new Random();
@@ -49,7 +49,7 @@ public class zad2 {
         System.out.println("");
     }
 
-//    public static  int ileParzystych(int tab[]){
+    //    public static  int ileParzystych(int tab[]){
 //        int licznik1 = 0;
 //        for (int el : tab){
 //            if(el % 2 == 0){
@@ -149,13 +149,22 @@ public class zad2 {
         return suma;
     }
     public static int dlugoscMaksymalnegoCiaguDodatnich(int tab[]){
-        int suma = 1;
-        for(int i = 1; i < tab.length;i++) {
-            if (tab[i-1] >=0 && tab[i] >=0){
-                suma +=1;
+        int licznik = 0;
+        int maks = tab.length;
+        for(int i = 0; i < tab.length;i++) {
+            if (tab[i] > 0){
+                licznik +=1;
             }
+            else if(licznik > maks){
+                maks = licznik;
+                licznik = 0;
+            }
+            else{
+                licznik = 0;
+            }
+
         }
-        return suma;
+        return licznik;
     }
     public static void signum(int tab[]){
         for(int i = 0; i < tab.length;i++) {
@@ -169,28 +178,17 @@ public class zad2 {
     }
 
     public static void odwrocFragment(int tab[], int lewy, int prawy){
-//        for(int i = lewy; int j = prawy; i < ((lewy + prawy)/2; j > (lewy+prawy)/2; i++; j--){
-//            tab[i] = tab[j];
 
-        for(int i =lewy; i < ((lewy + prawy)/2); i++){
-            for(int j = prawy; j > ((lewy + prawy)/2); j--){
-                int temp = tab[i];
+        while(lewy<prawy){
+            int pom = tab[lewy];
+            tab[lewy] = tab[prawy];
+            tab[prawy] = pom;
 
-                tab[i] = tab[j];
-                tab[j] = temp;
-
-            }
-
-            }
+            lewy ++;
+            prawy --;
+        }
     }
 
-  }
-
-
-
-
-
-
-
+}
 
 
