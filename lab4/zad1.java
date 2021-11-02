@@ -1,5 +1,6 @@
-package lab3;
+//package lab4;
 
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -19,6 +20,9 @@ public class zad1 {
         System.out.println(countSubStr(str, subStr));
         System.out.println(middle(str));
         System.out.println(repeat(str, 3));
+//        System.out.println(where(str,subStr));
+        System.out.println(change(str));
+        System.out.println(nice(str));
 
     }
 
@@ -95,6 +99,7 @@ public class zad1 {
                 counter++;
                 tab.add(pos);
                 pos += subStr.length();
+
             }
             else {
 
@@ -108,5 +113,54 @@ public class zad1 {
         }
 
 
+    }
+    public static String change(String str){
+        var sb = new StringBuffer();
+
+        for(int i=0;i<str.length();i++) {
+            if (str.charAt(i)>='A'&&str.charAt(i)<='Z')
+            {
+                sb.append(str.toLowerCase().charAt(i));
+
+            }
+            else if(str.charAt(i)>='a'&&str.charAt(i)<='z')
+            {
+                sb.append(str.toUpperCase().charAt(i));
+            }
+        }
+        String result = sb.toString();
+        return result;
+    }
+    public static String nice(String str){
+        var sb = new StringBuffer();
+
+        for(int i=0;i<str.length();i++){
+            sb.append(str.charAt(i));
+        }
+
+        for(int i=str.length(); i<0; i--){
+            sb.append(str.charAt(i));
+        }
+        String result = sb.toString();
+        String[] res = result.split("'",3);
+        String r = res.toString();
+        return r;
+    }
+
+    public static String nice(String str, int liczba, String sep){
+        var sb = new StringBuffer();
+
+        for(int i=0;i<str.length();i++){
+            sb.append(str.charAt(i));
+        }
+
+        for(int i=str.length(); i<0; i--){
+            sb.append(str.charAt(i));
+        }
+
+        String result = sb.toString();
+        String[] res = result.split(sep, liczba);
+        String r = res.toString();
+        return r;
     }
 }
