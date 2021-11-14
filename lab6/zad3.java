@@ -29,7 +29,7 @@ public class zad3 {
         LocalDate d = personel[0].dataZatrudnienia();
 
         double tenYersInMiliSeconds = 10 * 365.25 * 24 * 60 * 60 * 1000;
-        d.setTime(d.getTime() - (long) tenYersInMiliSeconds);
+        d.now().atTime(d.getLong - (long) tenYersInMiliSeconds);
 
         for (Pracownik e : personel) {
             System.out.print("nazwisko = " + e.nazwisko() + "\tpobory = " + e.pobory());
@@ -48,8 +48,9 @@ class Pracownik {
 
         // klasa GregorianCalendar numeruje miesiące począwszy od 0
         GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+        LocalDate ld = calendar.toZonedDateTime().toLocalDate();
 
-        dataZatrudnienia = calendar.getTime();
+        dataZatrudnienia = ld;
         // dataZatrudnienia = new Date(year, month, day);
         // Powyższy konstruktor jest metodą odradzaną (ang. deprecated)
     }
@@ -77,5 +78,5 @@ class Pracownik {
 
     private String nazwisko;
     private double pobory;
-    private Date dataZatrudnienia;
+    private LocalDate dataZatrudnienia;
 }

@@ -1,5 +1,6 @@
 package lab6;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,41 +23,61 @@ public class zad2 {
     }
 }
 
-class IntegerSet{
+class IntegerSet {
     public IntegerSet(){
-//        Set<Integer>set2 = new HashSet<>();
-//        set2.add(5);
-//        set2.add(8);
     }
 
-    public void insertElement(Integer element){
-        set.add(element);
-    }
-
-    public void deleteElement(Integer element){
-        set.remove(element);
-    }
-
-    public static IntegerSet union(IntegerSet set, IntegerSet set2){
-        IntegerSet union = new IntegerSet();
-        for(int i =0;i<100;i++){
-            union.insertElement(set[i]);
+    public static IntegerSet union(IntegerSet setA, IntegerSet setB)
+    {
+        IntegerSet pom = new IntegerSet();
+        for(int i = 0; i < 101; i++)
+        {
+            pom.set[i] = setA.set[i] || setB.set[i];
         }
+        return pom;
+    }
 
-        return union;
+    public static IntegerSet intersection(IntegerSet setA, IntegerSet setB)
+    {
+        IntegerSet pom = new IntegerSet();
+        int i = 0;
+        while(i < 101)
+        {
+            pom.set[i] = setA.set[i] && setB.set[i];
+            i++;
+        };
+
+        return pom;
+    }
+
+    public void insertElement(int element)
+    {
+        set[element] = true;
+    }
+
+    public void deleteElement(int element)
+    {
+        set[element] = false;
     }
 
     @Override
     public String toString() {
         return "IntegerSet{" +
-                "set=" + set +
+                "set=" + Arrays.toString(set) +
                 '}';
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean isEqual(IntegerSet setA)
+    {
+        for(int i=0; i<101; i++)
+        {
+            if(set[i] != setA.set[i])
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
-    Set<Integer>set = new HashSet<>();
+    private boolean[] set = new boolean[101];
 }
