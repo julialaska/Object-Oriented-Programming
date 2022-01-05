@@ -19,22 +19,22 @@ class ArrayUtil<T> {
 
         int min = 0;
         int max = tab2.size()-1;
-        int indeks;
+        int index = 0;
 
         while(min <= max){
-            indeks = (min+max)/2;
-            if(tab.get(indeks).compareTo(element) > 0){
-                max = indeks++;
+            int mid = (min+max)/2;
+            if(tab.get(mid).equals(element)){
+                index = mid;
             }
-            else if(tab.get(indeks).compareTo(element) < 0){
-                min = indeks--;
+            if(tab.get(mid).compareTo(element) > 0){
+                max = mid - 1;
             }
-            else{
-                return indeks;
+            else {
+                min = mid + 1;
             }
-        }
 
-        return -1;
+        }
+        return index;
     }
 
     public static <T extends Comparable<? super T>> void selectionSort(ArrayList<T> tab) {
@@ -50,6 +50,9 @@ class ArrayUtil<T> {
 
             
         }
+
+
     }
+
 
 }
