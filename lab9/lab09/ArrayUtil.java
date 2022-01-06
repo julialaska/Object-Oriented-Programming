@@ -53,6 +53,72 @@ class ArrayUtil<T> {
 
 
     }
+    public static <T extends Comparable<? super T>> void mergeSort(ArrayList<T> tab) {
+        if(tab.size() > 1){
+            int mid = tab.size() / 2;
 
+//            ArrayList<T> left = new ArrayList<>(tab.size() / 2);
+//            ArrayList<T> right = new ArrayList<>(tab.size() - mid);
+//
+//            for(int i = 0; i < mid; i++) {
+//
+//                for (int j = mid; j < tab.size(); j++) {
+//                    left.add(i, tab.get(i));
+//                    right.add(j - mid, tab.get(j));
+//
+//                }
+//            }
+
+            // filling left section of tab
+            ArrayList<T> left = new ArrayList<>(tab.size() / 2);
+            for(int i = 0; i < mid; i++)
+            {
+                left.add(i, tab.get(i));
+            }
+
+            // filling right section of tab
+            ArrayList<T> right = new ArrayList<>(tab.size() - mid);
+            for(int i = mid; i < tab.size(); i++)
+            {
+                right.add(i - mid, tab.get(i));
+            }
+
+            mergeSort(left);
+            mergeSort(right);
+
+            int i = 0;
+            int j = 0;
+            int k = 0;
+
+            while(i < left.size() && j < right.size())
+            {
+                if(left.get(i).compareTo(right.get(j)) < 0)
+                {
+                    tab.set(k, left.get(i));
+                    i += 1;
+                }
+                else
+                {
+                    tab.set(k, right.get(j));
+                    j += 1;
+                }
+                k += 1;
+            }
+
+            while(i < left.size())
+            {
+                tab.set(k, left.get(i));
+                i += 1;
+                k += 1;
+            }
+            while(j < right.size())
+            {
+                tab.set(k, right.get(j));
+                j += 1;
+                k += 1;
+            }
+
+        }
+    }
 
 }

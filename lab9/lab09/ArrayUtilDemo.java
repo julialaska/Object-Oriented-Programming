@@ -29,19 +29,38 @@ public class ArrayUtilDemo {
         Collections.sort(tab2);
 
         System.out.println(ArrayUtil.isSorted(tab2));
-//
-//        System.out.println(ArrayUtil.binSearch(tab, 7));
-//        System.out.println(ArrayUtil.binSearch(tab2, LocalDate.of(2011, 7, 18)));
 
+        System.out.println("index binary search: " + ArrayUtil.binSearch(tab, 8));
+        System.out.println("index binary search: " + ArrayUtil.binSearch(tab2, LocalDate.of(2018, 12, 13)));
 
-        for(int i = 0; i < tab.size(); i ++)
-            System.out.println(tab.get(i));
+        Collections.shuffle(tab);
+
+//        for(int i = 0; i < tab.size(); i ++)
+//            System.out.println(tab.get(i));
+
+        System.out.println("-------selectionsorted--------");
 
         ArrayUtil.selectionSort(tab);
 
         for(int i = 0; i < tab.size(); i ++)
-
             System.out.println(tab.get(i));
+
+        Collections.shuffle(tab);
+
+//        System.out.println("----------------");
+
+//        for(int i = 0; i < tab.size(); i ++)
+//            System.out.println(tab.get(i));
+
+        Collections.shuffle(tab);
+
+        System.out.println("--------Mergesorted--------");
+
+        ArrayUtil.mergeSort(tab);
+
+        for(int i = 0; i < tab.size(); i ++)
+            System.out.println(tab.get(i));
+
     }
 }
 
