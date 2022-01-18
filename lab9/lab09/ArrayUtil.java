@@ -69,14 +69,14 @@ class ArrayUtil<T> {
 //                }
 //            }
 
-            // filling left section of tab
+          
             ArrayList<T> left = new ArrayList<>(tab.size() / 2);
             for(int i = 0; i < mid; i++)
             {
                 left.add(i, tab.get(i));
             }
 
-            // filling right section of tab
+           
             ArrayList<T> right = new ArrayList<>(tab.size() - mid);
             for(int i = mid; i < tab.size(); i++)
             {
