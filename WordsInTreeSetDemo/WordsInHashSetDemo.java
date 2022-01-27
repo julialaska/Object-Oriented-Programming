@@ -31,7 +31,6 @@ public class WordsInHashSetDemo
         }
 
         System.out.println(". . .\n");
-        System.out.println("PROGRAM WYKONANY PRZY POMOCY HashSetu :");
         System.out.println(words.size() + " unikalnych słów. " + totalTime + " milisekund.");
     }
 }
