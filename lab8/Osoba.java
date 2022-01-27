@@ -1,7 +1,6 @@
-package pl.imiajd.laska;
+package lab88;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Osoba implements Cloneable, Comparable<Osoba> {

@@ -1,4 +1,4 @@
-package pl.imiajd.laska;
+package lab88;
 
 import java.util.ArrayList;
 import java.time.LocalDate;

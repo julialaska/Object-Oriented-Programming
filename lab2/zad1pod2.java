@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class t {
+class t {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj n");

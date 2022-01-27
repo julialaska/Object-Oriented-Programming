@@ -1,4 +1,4 @@
-package pl.imiajd.laska;
+package lab88;
 
 import java.io.File;
 import java.io.FileNotFoundException;
