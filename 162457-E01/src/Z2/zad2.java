@@ -9,7 +9,11 @@ public class zad2 {
         tab1.add(5);
         tab1.add(4);
         tab1.add(3);
+        tab1.add(3);
+        tab1.add(6);
         tab1.add(2);
+        tab1.add(1);
+        tab1.add(12);
         printMarginal(tab1);
 
         LinkedList<Integer> tab2 = new LinkedList<>();
@@ -17,6 +21,8 @@ public class zad2 {
         tab2.add(2);
         tab2.add(3);
         tab2.add(4);
+        tab2.add(6);
+        tab2.add(0);
         printMarginal(tab2);
 
         TreeSet<Integer> tab3 = new TreeSet<>();
@@ -33,7 +39,7 @@ public class zad2 {
         tab4.add(6);
         printMarginal(tab4);
     }
-    public static <E, T extends Iterable<E>> void printMarginal(T obiekt){
+    public static <E extends Iterable> void printMarginal(E obiekt){
         ArrayList<String> pom = new ArrayList<>();
 
         for(Object el: obiekt){
