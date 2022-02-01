@@ -1,6 +1,5 @@
 package Z2;
 
-import javax.print.DocFlavor;
 import java.util.*;
 
 public class zad2 {
